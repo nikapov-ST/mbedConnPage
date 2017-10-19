@@ -4,11 +4,13 @@ function Cloud() {
     
     //this.notification_server = "http://18.221.102.101:53576";
     
-    this.notification_server = "http://192.168.1.20:8082";
-    this.notification_server_out = "http://93.62.59.68:53576";
+    //this.notification_server = "http://192.168.1.20:8082";
+    //this.notification_server_out = "http://93.62.59.68:53576";
     this.notification_path = "/notification";
 
-    //this.notification_server = "http://13.59.209.66:53576";
+    this.notification_server_out = "http://13.59.209.66:53576";
+    this.notification_server = "http://172.31.45.50:53576";
+    //this.notification_server = "http://localhost:53576";
     
     //this.key = "KGC48Y04jRsJgYG4Uwnx1dmMfhVImYwy49sc87PafmJDJLdmvexESLhy4J0AeLmbwvbE5kMfIoy9PDSYVoTSvl55Kue3InElCB7N";
     // new
