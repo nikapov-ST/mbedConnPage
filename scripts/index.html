@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type='text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+    <script type='text/javascript' src="scripts/ko-chart.js"></script>
+    <script type='text/javascript' src="scripts/cloud.js"></script>
+    <script type='text/javascript' src="scripts/vm.js"></script>
+  </head>
+  <body>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-4">
+          <img src="logo.png" height="64px;"/>
+        </div>
+        <div class="col-xs-8">
+          <h1>ST Sensors Cloud Demo</h1>
+        </div>
+      </div>
+    </div>
+    <div class="fluid-container">
+      
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Controls
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-4">
+          <p>Select Endpoint: <b><span 
+            data-bind = "text:selectedEndpoint"></b></span></p>
+          </div>
+          <div class="col-xs-4">
+            <button class="btn btn-default" data-bind="click: getEndpoints">Refresh</button><br>
+            <select data-bind = "options: availableEndpoints, value: selectedEndpoint, optionsCaption: 'Choose Endpoint...'"></select></p>
+          </div>
+          <div class="col-xs-4">
+            <button class="btn btn-default" data-bind="click: registerNotificationChannel">Register Notification Service</button><br>
+            <button class="btn btn-default" data-bind="click: getEndpointInfo">Get Endpoint Info</button><br>
+            <button id="start-button" class="btn btn-default" data-bind="click: startService">Start</button>
+            <button id="stop-button" class="btn btn-default" data-bind="click: stopService">Stop</button>
+            <!--
+            <button class="btn btn-default" data-bind="click: getEndpointInfo">getEndpointInfo</button>
+            <button class="btn btn-default" data-bind="click: startTempNotificationService">startTempNotificationService</button>
+            <button class="btn btn-default" data-bind="click: startPressureNotificationService">startPressureNotificationService</button>
+            <button class="btn btn-default" data-bind="click: startButtonNotificationService">startButtonNotificationService</button>
+            <button class="btn btn-default" data-bind="click: getResource">getResource</button>
+            -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Tables
+      </div>
+      <div align="center">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-6">
+              <canvas id="temp_chart" width="500" height="240" data-bind="chartType: 'Line', chartData: tempData, chartOptions : { duration: 0, update: 0, animation : false, showTooltips: true, segmentShowStroke : true, segmentStrokeColor: '#222222'}"></canvas>
+              <br><div align="center" text-align: center;><p>Temperature</p></div>
+            </div>
+            <div class="col-xs-6">
+              <canvas id="pressure_chart" width="500" height="240" data-bind="chartType: 'Line', chartData: pressureData, chartOptions : { duration: 0, update: 0, animation : false, showTooltips: true, segmentShowStroke : true, segmentStrokeColor: '#222222'}"></canvas>
+              <br><div align="center"><p>Pressure</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-6">
+              <canvas id="button_chart" width="500" height="240" data-bind="chartType: 'Line', chartData: buttonData, chartOptions : { duration: 0, update: 0, animation : false, showTooltips: true, segmentShowStroke : true, segmentStrokeColor: '#222222'}"></canvas>
+              <br><div align="center"><p>Button count</p></div>
+            </div>
+            <div class="col-xs-6">
+              <canvas id="humidity_chart" width="500" height="240" data-bind="chartType: 'Line', chartData: humidityData, chartOptions : { duration: 0, update: 0, animation : false, showTooltips: true, segmentShowStroke : true, segmentStrokeColor: '#222222'}"></canvas>
+              <br><div align="center"><p>Humidity</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
